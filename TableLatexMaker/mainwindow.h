@@ -16,12 +16,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_importarArq_clicked();
+
+    void on_arqCSV_clicked();
+
+    void on_arqxlsx_clicked();
 
 private:
     Ui::MainWindow *ui;
-    void conversor(QString argv);
-    QString headerTable(QString nomeArquivo);
-    QString arquivoCSV(QString nomeArquivo, QString titulo, QString caminho, bool quadriculado);
 };
 #endif // MAINWINDOW_H

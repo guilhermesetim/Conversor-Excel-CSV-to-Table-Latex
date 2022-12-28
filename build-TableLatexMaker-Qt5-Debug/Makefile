@@ -83,6 +83,8 @@ SOURCES       = ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropscore.cpp \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart.cpp \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxsimpleooxmlfile.cpp \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.cpp \
+		../TableLatexMaker/arquivotex.cpp \
+		../TableLatexMaker/formatotex.cpp \
 		../TableLatexMaker/main.cpp \
 		../TableLatexMaker/mainwindow.cpp moc_xlsxdocument.cpp \
 		moc_mainwindow.cpp
@@ -117,6 +119,8 @@ OBJECTS       = xlsxdocpropscore.o \
 		xlsxchart.o \
 		xlsxsimpleooxmlfile.o \
 		xlsxcellformula.o \
+		arquivotex.o \
+		formatotex.o \
 		main.o \
 		mainwindow.o \
 		moc_xlsxdocument.o \
@@ -414,6 +418,8 @@ DIST          = /usr/lib/mkspecs/features/spec_pre.prf \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxsimpleooxmlfile_p.h \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.h \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula_p.h \
+		../TableLatexMaker/arquivotex.h \
+		../TableLatexMaker/formatotex.h \
 		../TableLatexMaker/mainwindow.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropscore.cpp \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropsapp.cpp \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxrelationships.cpp \
@@ -445,6 +451,8 @@ DIST          = /usr/lib/mkspecs/features/spec_pre.prf \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart.cpp \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxsimpleooxmlfile.cpp \
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.cpp \
+		../TableLatexMaker/arquivotex.cpp \
+		../TableLatexMaker/formatotex.cpp \
 		../TableLatexMaker/main.cpp \
 		../TableLatexMaker/mainwindow.cpp
 QMAKE_TARGET  = TableLatexMaker
@@ -972,8 +980,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropscore_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropsapp_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrelationships_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxutility_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsharedstrings_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcontenttypes_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxtheme_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxformat.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworkbook.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxstyles_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractsheet.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractsheet_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworksheet.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworksheet_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchartsheet.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchartsheet_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipwriter_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworkbook_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxformat_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxglobal.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawing_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipreader_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocument.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocument_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcell.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcell_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdatavalidation.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdatavalidation_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellreference.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellrange.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrichstring_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrichstring.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxconditionalformatting.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxconditionalformatting_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcolor_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxnumformatparser_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawinganchor_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxmediafile_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractooxmlfile.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractooxmlfile_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsimpleooxmlfile_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula_p.h ../TableLatexMaker/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropscore.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropsapp.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrelationships.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxutility.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsharedstrings.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcontenttypes.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxtheme.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxformat.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxstyles.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworkbook.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractsheet.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworksheet.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchartsheet.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipwriter.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawing.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipreader.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocument.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcell.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdatavalidation.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellreference.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellrange.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrichstring.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxconditionalformatting.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcolor.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxnumformatparser.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawinganchor.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxmediafile.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractooxmlfile.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsimpleooxmlfile.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.cpp ../TableLatexMaker/main.cpp ../TableLatexMaker/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropscore_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropsapp_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrelationships_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxutility_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsharedstrings_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcontenttypes_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxtheme_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxformat.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworkbook.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxstyles_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractsheet.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractsheet_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworksheet.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworksheet_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchartsheet.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchartsheet_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipwriter_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworkbook_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxformat_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxglobal.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawing_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipreader_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocument.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocument_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcell.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcell_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdatavalidation.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdatavalidation_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellreference.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellrange.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrichstring_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrichstring.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxconditionalformatting.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxconditionalformatting_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcolor_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxnumformatparser_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawinganchor_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxmediafile_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractooxmlfile.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractooxmlfile_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsimpleooxmlfile_p.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.h ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula_p.h ../TableLatexMaker/arquivotex.h ../TableLatexMaker/formatotex.h ../TableLatexMaker/mainwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropscore.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocpropsapp.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrelationships.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxutility.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsharedstrings.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcontenttypes.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxtheme.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxformat.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxstyles.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworkbook.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractsheet.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxworksheet.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchartsheet.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipwriter.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawing.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxzipreader.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocument.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcell.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdatavalidation.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellreference.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellrange.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxrichstring.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxconditionalformatting.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcolor.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxnumformatparser.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxdrawinganchor.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxmediafile.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractooxmlfile.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxchart.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxsimpleooxmlfile.cpp ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.cpp ../TableLatexMaker/arquivotex.cpp ../TableLatexMaker/formatotex.cpp ../TableLatexMaker/main.cpp ../TableLatexMaker/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TableLatexMaker/mainwindow.ui $(DISTDIR)/
 
 
@@ -1350,11 +1358,28 @@ xlsxcellformula.o: ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.cpp ../Tab
 		../TableLatexMaker/QtXlsx/src/xlsx/xlsxutility_p.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcellformula.o ../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellformula.cpp
 
+arquivotex.o: ../TableLatexMaker/arquivotex.cpp ../TableLatexMaker/arquivotex.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o arquivotex.o ../TableLatexMaker/arquivotex.cpp
+
+formatotex.o: ../TableLatexMaker/formatotex.cpp ../TableLatexMaker/formatotex.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o formatotex.o ../TableLatexMaker/formatotex.cpp
+
 main.o: ../TableLatexMaker/main.cpp ../TableLatexMaker/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TableLatexMaker/main.cpp
 
 mainwindow.o: ../TableLatexMaker/mainwindow.cpp ../TableLatexMaker/mainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxdocument.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxglobal.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxformat.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxworksheet.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractsheet.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxabstractooxmlfile.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxcell.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellrange.h \
+		../TableLatexMaker/QtXlsx/src/xlsx/xlsxcellreference.h \
+		../TableLatexMaker/arquivotex.h \
+		../TableLatexMaker/formatotex.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TableLatexMaker/mainwindow.cpp
 
 moc_xlsxdocument.o: moc_xlsxdocument.cpp 

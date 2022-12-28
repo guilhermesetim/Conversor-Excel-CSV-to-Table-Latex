@@ -14,17 +14,17 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="importarArq">
+   <widget class="QPushButton" name="arqCSV">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>20</x>
       <y>70</y>
-      <width>201</width>
+      <width>171</width>
       <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>Insira o arquivo</string>
+     <string>Insira arquivos .CSV</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="arqSelect">
@@ -102,7 +102,7 @@
       <x>40</x>
       <y>130</y>
       <width>361</width>
-      <height>80</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -112,7 +112,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>40</y>
+       <y>30</y>
        <width>106</width>
        <height>22</height>
       </rect>
@@ -127,8 +127,8 @@
     <widget class="QRadioButton" name="rd_quad">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>40</y>
+       <x>220</x>
+       <y>30</y>
        <width>106</width>
        <height>22</height>
       </rect>
@@ -137,6 +137,19 @@
       <string>Quadro</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="arqxlsx">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>70</y>
+      <width>191</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Insira arquivos .xlsx</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

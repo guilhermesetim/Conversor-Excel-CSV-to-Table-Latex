@@ -2,6 +2,8 @@
 #include "./ui_mainwindow.h"
 
 #include "xlsxdocument.h"
+#include "arquivotex.h"
+#include "formatotex.h"
 
 #include <QFile>
 #include <QFileDialog>
@@ -24,10 +26,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_importarArq_clicked()
+void MainWindow::on_arqCSV_clicked()
 {
-    QString filtro = "Todos os arquivos (*.*) ;; Arquivos CSV (*.csx)";
+    QString filtro = "Todos os arquivos (*.*) ;; Arquivos CSV (*.csv)";
     QString abrirArquivo = QFileDialog::getOpenFileName(this, "Selecionar Arquivos", QDir::homePath(), filtro);
     QFile arquivo(abrirArquivo);
     if(!arquivo.open(QFile::ReadOnly|QFile::Text)) {
@@ -47,25 +48,45 @@ void MainWindow::on_importarArq_clicked()
         quadriculado = true;
     }
 
-    QString conteudoLatex = this->arquivoCSV(texto, titulo, abrirArquivo, quadriculado);
+    //QString conteudoLatex = this->arquivoCSV(texto, titulo, quadriculado);
+    FormatoTex formatoTex(texto, titulo,quadriculado);
+    QString conteudoLatex = formatoTex.getConteudoFormatado();
 
     ui->arqSelect->setPlainText(abrirArquivo);
-    //ui->tabConvert->setPlainText(conteudoLatex);
+    ui->tabConvert->setPlainText(conteudoLatex);
 
     arquivo.close();
+
+
+    ArquivoTex arquivoLatex(abrirArquivo);
+    arquivoLatex.gravar(conteudoLatex);
 
 
     QMessageBox msgBox;
     msgBox.setText("A tabela foi convertida para latex com sucesso.");
     msgBox.exec();
 
-    /* Criaçao de uma planilha
-    QXlsx::Document planilha;
-    planilha.write("A1", "Teste");
-    planilha.saveAs(QDir::currentPath()+"/teste_excel.xlsx");
-    */
-    QString dadosPlanilha;
 
+}
+
+
+void MainWindow::on_arqxlsx_clicked()
+{
+    QString filtro = "Todos os arquivos (*.*) ;; Arquivos CSV (*.csx)";
+    QString abrirArquivo = QFileDialog::getOpenFileName(this, "Selecionar Arquivos", QDir::homePath(), filtro);
+
+    QString titulo = ui->titulo->text();
+    ui->titulo->clear();
+
+    bool quadriculado;
+    if(ui->radio_tab->isChecked()) {
+        quadriculado = false;
+    }
+    else {
+        quadriculado = true;
+    }
+
+    QString dadosPlanilha;
     QXlsx::Document planilha(abrirArquivo);
     QString colunas[] = {"A","B","C","D","E","F"};
 
@@ -81,9 +102,7 @@ void MainWindow::on_importarArq_clicked()
 
     int l = 1;
     while (true) {
-        if(planilha.read("A"+QString::number(l)).toString() == ""){
-            break;
-        }
+
         for(int c = 0; c < qtdColunas; c++) {
             dadosPlanilha+=planilha.read(colunas[c]+QString::number(l)).toString();
             if(c < qtdColunas-1){
@@ -91,129 +110,30 @@ void MainWindow::on_importarArq_clicked()
             }
         }
         ++l;
+        if(planilha.read("A"+QString::number(l)).toString() == ""){
+            break;
+        }
         dadosPlanilha+="\n";
      }
 
 
+    FormatoTex formatoTex(dadosPlanilha, titulo,quadriculado);
+    QString conteudoLatex = formatoTex.getConteudoFormatado();
 
-    ui->tabConvert->setPlainText(dadosPlanilha);
+    ui->arqSelect->setPlainText(abrirArquivo);
+    ui->tabConvert->setPlainText(conteudoLatex);
+
+
+
+
+    ArquivoTex arquivoLatex(abrirArquivo);
+    arquivoLatex.gravar(conteudoLatex);
+
+
+    QMessageBox msgBox;
+    msgBox.setText("A tabela foi convertida para latex com sucesso.");
+    msgBox.exec();
+
 
 }
 
-
-QString MainWindow::arquivoCSV(QString nomeArquivo, QString titulo, QString caminho, bool quadriculado) {
-
-    QString header = "";
-    QString final = "";
-    QString formatoTabular = "";
-
-
-    QVector<QChar> tabela;
-
-
-
-
-
-    bool conteudoCelula = false;
-    bool linhaHorizontal = true;
-    int larguraTabela = 0;
-    int maiorLargura = 0;
-
-    for(QChar cadaLetra : nomeArquivo) {
-      if (cadaLetra == '"')
-        conteudoCelula = !conteudoCelula;
-
-      if(cadaLetra == "\n"){
-
-          tabela.push_back(' ');
-          tabela.push_back('\\');
-          tabela.push_back('\\');
-
-          larguraTabela = 0;
-
-          if(linhaHorizontal) {
-              tabela.push_back(' ');
-              tabela.push_back('\\');
-              tabela.push_back('h');
-              tabela.push_back('l');
-              tabela.push_back('i');
-              tabela.push_back('n');
-              tabela.push_back('e');
-              linhaHorizontal = quadriculado;
-          }
-      }
-
-      if(cadaLetra == ',' && !conteudoCelula) {
-        tabela.push_back(' ');
-        tabela.push_back('&');
-        tabela.push_back(' ');
-
-        larguraTabela++;
-        if(larguraTabela > maiorLargura){
-            maiorLargura = larguraTabela;
-        }
-      }
-      else
-        tabela.push_back(cadaLetra);
-    }
-
-
-    for (int c = 0; c <= maiorLargura; c++) {
-        if(quadriculado)
-            formatoTabular+='|';
-
-        formatoTabular+= "c";
-    }
-    if(quadriculado)
-        formatoTabular+='|';
-
-
-
-
-    header += "\\begin{table}[h]\n";
-    header += "\\centering\n";
-    header += "\\caption{"+ titulo +"}\n";
-    header += "\\begin{tabular}{"+formatoTabular+"}\n";
-    header+= "\\hline\n";
-
-    QStack<QChar> inverte;
-
-    for(QChar letraHeader : header) {
-        inverte.push(letraHeader);
-    }
-    while (!inverte.isEmpty()) {
-        tabela.push_front(inverte.top());
-        inverte.pop();
-    }
-
-
-    final += "\\\\ \n\\hline\n";
-    final += "\\end{tabular}\n";
-    final += "\\end{table}\n";
-
-    for(QChar letraFinal : final) {
-        tabela.push_back(letraFinal);
-    }
-
-
-
-   QString enviar = "";
-   for(QChar caracter : tabela) {
-     enviar+= caracter;
-   }
-
-
-
-   QString nomeTex = "";
-   nomeTex += caminho;
-   nomeTex += ".tex";
-
-   QFile arquivoLatex(nomeTex);
-   arquivoLatex.open(QFile::WriteOnly|QFile::Text);
-   QTextStream saida(&arquivoLatex);
-   saida << enviar;
-   arquivoLatex.flush();
-   arquivoLatex.close();
-
-   return enviar;
-}

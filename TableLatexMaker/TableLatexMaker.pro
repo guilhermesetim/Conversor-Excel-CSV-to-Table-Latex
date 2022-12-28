@@ -12,10 +12,14 @@ CONFIG += c++17
 DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000  XLSX_NO_LIB  # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    arquivotex.cpp \
+    formatotex.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    arquivotex.h \
+    formatotex.h \
     mainwindow.h
 
 FORMS += \

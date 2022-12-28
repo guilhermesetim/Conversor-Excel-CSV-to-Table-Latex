@@ -28,7 +28,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *importarArq;
+    QPushButton *arqCSV;
     QPlainTextEdit *arqSelect;
     QLabel *textoTituloTabela;
     QLineEdit *titulo;
@@ -38,6 +38,7 @@ public:
     QGroupBox *groupBox;
     QRadioButton *radio_tab;
     QRadioButton *rd_quad;
+    QPushButton *arqxlsx;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -48,9 +49,9 @@ public:
         MainWindow->resize(448, 643);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        importarArq = new QPushButton(centralwidget);
-        importarArq->setObjectName(QString::fromUtf8("importarArq"));
-        importarArq->setGeometry(QRect(120, 70, 201, 41));
+        arqCSV = new QPushButton(centralwidget);
+        arqCSV->setObjectName(QString::fromUtf8("arqCSV"));
+        arqCSV->setGeometry(QRect(20, 70, 171, 41));
         arqSelect = new QPlainTextEdit(centralwidget);
         arqSelect->setObjectName(QString::fromUtf8("arqSelect"));
         arqSelect->setGeometry(QRect(30, 260, 381, 51));
@@ -71,14 +72,17 @@ public:
         tabConvert->setGeometry(QRect(30, 350, 381, 241));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(40, 130, 361, 80));
+        groupBox->setGeometry(QRect(40, 130, 361, 61));
         radio_tab = new QRadioButton(groupBox);
         radio_tab->setObjectName(QString::fromUtf8("radio_tab"));
-        radio_tab->setGeometry(QRect(30, 40, 106, 22));
+        radio_tab->setGeometry(QRect(30, 30, 106, 22));
         radio_tab->setChecked(true);
         rd_quad = new QRadioButton(groupBox);
         rd_quad->setObjectName(QString::fromUtf8("rd_quad"));
-        rd_quad->setGeometry(QRect(210, 40, 106, 22));
+        rd_quad->setGeometry(QRect(220, 30, 106, 22));
+        arqxlsx = new QPushButton(centralwidget);
+        arqxlsx->setObjectName(QString::fromUtf8("arqxlsx"));
+        arqxlsx->setGeometry(QRect(210, 70, 191, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -96,13 +100,14 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        importarArq->setText(QCoreApplication::translate("MainWindow", "Insira o arquivo", nullptr));
+        arqCSV->setText(QCoreApplication::translate("MainWindow", "Insira arquivos .CSV", nullptr));
         textoTituloTabela->setText(QCoreApplication::translate("MainWindow", "Titulo da tabela", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Arquivos convertidos", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Tabela convertida", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "Estilo da Tabela", nullptr));
         radio_tab->setText(QCoreApplication::translate("MainWindow", "Tabela", nullptr));
         rd_quad->setText(QCoreApplication::translate("MainWindow", "Quadro", nullptr));
+        arqxlsx->setText(QCoreApplication::translate("MainWindow", "Insira arquivos .xlsx", nullptr));
     } // retranslateUi
 
 };
