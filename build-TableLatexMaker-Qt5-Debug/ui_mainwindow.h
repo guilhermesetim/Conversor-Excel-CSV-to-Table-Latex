@@ -46,12 +46,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(448, 643);
+        MainWindow->resize(441, 643);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         arqCSV = new QPushButton(centralwidget);
         arqCSV->setObjectName(QString::fromUtf8("arqCSV"));
-        arqCSV->setGeometry(QRect(20, 70, 171, 41));
+        arqCSV->setGeometry(QRect(30, 170, 171, 41));
         arqSelect = new QPlainTextEdit(centralwidget);
         arqSelect->setObjectName(QString::fromUtf8("arqSelect"));
         arqSelect->setGeometry(QRect(30, 260, 381, 51));
@@ -72,21 +72,21 @@ public:
         tabConvert->setGeometry(QRect(30, 350, 381, 241));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(40, 130, 361, 61));
+        groupBox->setGeometry(QRect(30, 80, 361, 61));
         radio_tab = new QRadioButton(groupBox);
         radio_tab->setObjectName(QString::fromUtf8("radio_tab"));
-        radio_tab->setGeometry(QRect(30, 30, 106, 22));
+        radio_tab->setGeometry(QRect(20, 30, 106, 22));
         radio_tab->setChecked(true);
         rd_quad = new QRadioButton(groupBox);
         rd_quad->setObjectName(QString::fromUtf8("rd_quad"));
         rd_quad->setGeometry(QRect(220, 30, 106, 22));
         arqxlsx = new QPushButton(centralwidget);
         arqxlsx->setObjectName(QString::fromUtf8("arqxlsx"));
-        arqxlsx->setGeometry(QRect(210, 70, 191, 41));
+        arqxlsx->setGeometry(QRect(220, 170, 191, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 448, 21));
+        menubar->setGeometry(QRect(0, 0, 441, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

@@ -23,5 +23,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    void msgSucesso();
+    bool quadriculado();
+    QString titulo();
+    QString leituraExcel(QString);
 };
 #endif // MAINWINDOW_H
