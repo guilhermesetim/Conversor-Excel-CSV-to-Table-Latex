@@ -2,12 +2,12 @@
 
 # Sobre o projeto
 
-Programa com interface gráfica de conversão de arquivos .csv e/ou .xlsx, para um arquivo .tex com a tabela no formato LaTex, conforme o usuário construiu no seu editor de planilhas eletrônica.
+Programa com interface gráfica de conversão de arquivos .csv e/ou .xlsx, para um arquivo .tex com uma tabela em código no formato LaTex, conforme o usuário construiu no seu editor de planilhas eletrônica.
 
-O programa consegue converter arquivos exportados no formatao .cvs, e arquivos de planilha eletrônica no formato .xlsx
+O programa consegue converter arquivos exportados no formatao .cvs, além de arquivos diretamente de planilha eletrônica no formato .xlsx
 
 ## Layout
-![abertura do programa](assets/imagem1.png) ![selecionar arquivo](assets/imagem2.png) ![converção](assets/imagem3.png) ![arquivo](assets/imagem4.png) 
+![abertura do programa](assets/imagem1.png) ![converção](assets/imagem2.png) ![arquivo](assets/imagem3.png) ![resultado](assets/imagem4.png)
 
 ## Funcionamento
 1. Digitar o título da tabela;
@@ -23,7 +23,6 @@ O programa consegue converter arquivos exportados no formatao .cvs, e arquivos d
 
 ### Biblioteca externa
 - QtXlsx (leitura de dados em arquivos .xlsx)
-
 A biblioteca pode ser encontrada em: https://github.com/dbzhang800/QtXlsxWriter
 
 # Como executar o projeto
